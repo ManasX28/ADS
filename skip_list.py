@@ -23,8 +23,7 @@ class SkipList(object):
 
     def randomLevel(self): 
         lvl = 0
-        while random.random()<self.P and \ 
-              lvl<self.MAXLVL:lvl += 1
+        while random.random()<self.P and lvl<self.MAXLVL:lvl += 1
         return lvl 
 
     def insertElement(self, key): 
@@ -34,8 +33,7 @@ class SkipList(object):
   
 
         for i in range(self.level, -1, -1): 
-            while current.forward[i] and \ 
-                  current.forward[i].key < key: 
+            while current.forward[i] and current.forward[i].key < key: 
                 current = current.forward[i] 
             update[i] = current 
   
@@ -68,8 +66,7 @@ class SkipList(object):
         current = self.header 
   
         for i in range(self.level, -1, -1): 
-            while(current.forward[i] and \ 
-                  current.forward[i].key < search_key): 
+            while(current.forward[i] and current.forward[i].key < search_key): 
                 current = current.forward[i] 
             update[i] = current 
 
@@ -86,8 +83,7 @@ class SkipList(object):
                 update[i].forward[i] = current.forward[i] 
   
 
-            while(self.level>0 and\ 
-                  self.header.forward[self.level] == None): 
+            while(self.level>0 and self.header.forward[self.level] == None): 
                 self.level -= 1
             print("Successfully deleted {}".format(search_key)) 
   
@@ -95,8 +91,7 @@ class SkipList(object):
         current = self.header 
   
         for i in range(self.level, -1, -1): 
-            while(current.forward[i] and\ 
-                  current.forward[i].key < key): 
+            while(current.forward[i] and current.forward[i].key < key): 
                 current = current.forward[i] 
   
         current = current.forward[0] 
@@ -108,10 +103,10 @@ class SkipList(object):
         print("\n*****Skip List******") 
         head = self.header 
         for lvl in range(self.level+1): 
-            print("Level {}: ".format(lvl), end=" ") 
+            print("Level {}: ".format(lvl)) 
             node = head.forward[lvl] 
             while(node != None): 
-                print(node.key, end=" ") 
+                print(node.key) 
                 node = node.forward[lvl] 
             print("") 
 
